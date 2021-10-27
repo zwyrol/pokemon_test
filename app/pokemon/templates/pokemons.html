@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemons list</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>
+            Pokemon Name
+        </th>
+        <th>Abilities</th>
+        <th>Details</th>
+    </tr>
+
+    {% for pokemon in pokemons %}
+        <tr>
+            <td>{{ pokemon.name }}</td>
+            <td>
+                {% for ability in pokemon.abilities.all %}
+                    - {{ ability.name }}<br />
+                {% endfor %}
+            </td>
+            <td>
+                - height: {{ pokemon.stats.height }}<br />
+                - weight: {{ pokemon.stats.weight }}<br />
+                - base experience: {{ pokemon.stats.base_experience }}<br />
+            </td>
+        </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>
